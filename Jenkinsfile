@@ -8,7 +8,11 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh 'npm install'
+        dir(path: 'mean') {
+          sh '''pwd
+yarn install'''
+        }
+        
       }
     }
     stage('Test') {
