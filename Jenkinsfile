@@ -8,11 +8,9 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        dir(path: 'mean') {
-          sh '''pwd
+        sh '''pwd
+export PATH=$PATH:~/.yarn/bin
 yarn install'''
-        }
-        
       }
     }
     stage('Test') {
