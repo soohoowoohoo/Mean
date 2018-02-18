@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''apk add make g++ python git
+        sh '''apk --no-cache add make g++ python git
 yarn install'''
       }
     }
