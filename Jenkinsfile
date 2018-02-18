@@ -12,12 +12,21 @@ pipeline {
 yarn install'''
       }
     }
-    stage('Test') {
+    stage('Server Testing') {
       environment {
         MONGODB_URI = 'mongodb://jenkinstest:jenkinstest@ds051833.mlab.com:51833/mean-copy'
       }
-      steps {
-        sh 'npm run test:server'
+      parallel {
+        stage('Server Tests') {
+          steps {
+            sh 'npm run test:server'
+          }
+        }
+        stage('Server Coverage') {
+          steps {
+            sh 'npm run test:coverage:server'
+          }
+        }
       }
     }
   }
