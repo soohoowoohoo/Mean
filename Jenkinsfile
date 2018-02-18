@@ -8,8 +8,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''pwd
-export PATH=$PATH:~/.yarn/bin
+        sh '''apk add make g++ python git
 yarn install'''
       }
     }
