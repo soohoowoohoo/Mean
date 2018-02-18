@@ -13,9 +13,8 @@ yarn install'''
       }
     }
     stage('Test') {
-      agent any
       environment {
-        MONGODB_URI = '\'mongodb://jenkinstest:jenkinstest@ds051833.mlab.com:51833/mean-copy'
+        MONGODB_URI = 'mongodb://jenkinstest:jenkinstest@ds051833.mlab.com:51833/mean-copy'
       }
       steps {
         sh 'npm run test:server'
